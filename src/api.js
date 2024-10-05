@@ -1,5 +1,5 @@
 //Емулюю асинхронні запити, так як ліміт запитів обмежений, при потребі переробити на звичайний fetch
-import { cryptoAssets, cryptoData } from "../../data";
+import { cryptoAssets, cryptoData } from "./data";
 
 export function fakeFetchCrypto() {
   return new Promise((resolve) => {
@@ -10,9 +10,9 @@ export function fakeFetchCrypto() {
 }
 
 export function fetchAssets() {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(cryptoAssets);
-      }, 1);
-    });
-  }
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(cryptoAssets);
+    }, 1);
+  });
+}
