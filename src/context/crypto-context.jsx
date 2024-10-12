@@ -21,6 +21,7 @@ export function CryptoContextProvider({ children }) {
         growPercent: percentDifference(asset.price, coin.price),
         totalAmount: asset.amount * coin.price,
         totalProfit: asset.amount * coin.price - asset.amount * asset.price,
+        name: coin.name,
         ...asset,
       };
     });
@@ -31,7 +32,6 @@ export function CryptoContextProvider({ children }) {
       setLoading(true);
       const { result } = await fakeFetchCrypto();
       const assets = await fetchAssets();
-
       setAssets(mapAssets(assets, result));
       setCrypto(result);
       setLoading(false);
